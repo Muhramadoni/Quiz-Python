@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hasil Kuis</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #4e4e4e;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: #dfdfdf;
+        padding: 20px 100px;
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .result {
+        text-align: center;
+        font-size: 1.2em;
+      }
+      .result p {
+        margin: 10px 0;
+      }
+      h2 {
+        text-align: center;
+        padding: 30px;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 15px;
+        margin: 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 15px;
+          margin: 10px;
+        }
+
+        .result {
+          font-size: 1em;
+        }
+
+        button {
+          padding: 12px;
+          font-size: 1em;
+        }
+
+        h2 {
+          padding: 20px;
+          font-size: 1.5em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Hasil Kuis</h2>
+      <div class="result">
+        <p>Jumlah Jawaban Benar: <span id="correctCount"></span></p>
+        <p>Jumlah Jawaban Salah: <span id="incorrectCount"></span></p>
+        <p>Persentase Skor: <span id="percentage"></span>%</p>
+      </div>
+      <button onclick="window.location.href='index.html'">Kembali ke Kuis</button>
+    </div>
+
+    <script>
+      const correctCount = localStorage.getItem("correctCount");
+      const incorrectCount = localStorage.getItem("incorrectCount");
+      const percentage = localStorage.getItem("percentage");
+
+      document.getElementById("correctCount").innerText = correctCount ? correctCount : 0;
+      document.getElementById("incorrectCount").innerText = incorrectCount ? incorrectCount : 0;
+      document.getElementById("percentage").innerText = percentage ? percentage : 0;
+    </script>
+  </body>
+</html>
